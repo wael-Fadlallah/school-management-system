@@ -2,12 +2,12 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  CreateDateColumn,
   UpdateDateColumn,
+  BaseEntity,
 } from 'typeorm';
 
 @Entity()
-export class Student {
+export class Student extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -23,6 +23,16 @@ export class Student {
   @Column({ type: 'date' })
   dob: Date;
 
+  @Column()
+  status: number;
+
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
+}
+
+export class StudentDto {
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly nationality: string;
+  readonly dob: Date;
 }

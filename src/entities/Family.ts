@@ -5,11 +5,12 @@ import {
   UpdateDateColumn,
   OneToOne,
   JoinColumn,
+  BaseEntity,
 } from 'typeorm';
 import { Student } from './Student';
 
 @Entity()
-export class Family {
+export class Family extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
