@@ -5,7 +5,7 @@
   "username": "root",
   "password": "",
   "database": "school-system",
-  "entities": ["entities/*.ts"],
+  "entities": ["src/entities/*.ts"],
   "synchronize": true,
-  "migrations": ["migrations/**/*.ts"]
+  "migrations": ["src/migrations/**/*.ts"]
 }
