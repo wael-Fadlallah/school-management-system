@@ -2,11 +2,14 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { StudentModule } from 'src/student/student.module';
 import { Student } from 'src/entities/Student';
+import { Family } from 'src/entities/Family';
+import { FamilyModule } from 'src/family/family.module';
 
 @Module({
   imports: [
     StudentModule,
-    TypeOrmModule.forFeature([Student]),
+    FamilyModule,
+    TypeOrmModule.forFeature([Student, Family]),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -14,7 +17,7 @@ import { Student } from 'src/entities/Student';
       username: 'root',
       password: '',
       database: 'school-system',
-      entities: [Student],
+      entities: [Student, Family],
       synchronize: true,
       migrations: ['dist/migrations/**/*.js'],
     }),

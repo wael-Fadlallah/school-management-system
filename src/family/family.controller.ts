@@ -1,10 +1,14 @@
 import { Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Family } from 'src/entities/Family';
+import { FamilyService } from './family.service';
 
 @Controller('families/:studnet')
 export class FamilyController {
+  constructor(private readonly familyService: FamilyService) {}
+
   @Get()
-  getStudntFamily(): Array<string> {
-    return [];
+  getStudntFamily(): Promise<Family[]> {
+    return this.familyService.getAll();
   }
 
   @Get('member/:id')

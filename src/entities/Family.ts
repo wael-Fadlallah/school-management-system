@@ -36,3 +36,13 @@ export class Family extends BaseEntity {
   @UpdateDateColumn({ type: 'timestamp' })
   updated_at: Date;
 }
+
+export class FamilyDto {
+  readonly id: number;
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly student_id: Student;
+  readonly address: string;
+  readonly relation_to_student: string;
+  readonly dob: Date;
+}

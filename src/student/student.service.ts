@@ -14,12 +14,12 @@ export class StudentService {
     return students;
   }
 
-  async getById(id: string): Promise<Student> {
+  async getById(id: number): Promise<Student> {
     const student: Student = await Student.findOne({ where: { id } });
     return student;
   }
 
-  async update(id: string, student: StudentDto): Promise<boolean | Student> {
+  async update(id: number, student: StudentDto): Promise<boolean | Student> {
     const affected: number = (await Student.update(id, student)).affected;
     return affected ? this.getById(id) : false;
   }
